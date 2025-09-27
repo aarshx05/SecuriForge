@@ -1,0 +1,290 @@
+<html><body><h2>SecuriForge Report</h2><h3>HARDENING</h3><pre>{
+  "ASLR": {
+    "name": "ASLR",
+    "passed": true,
+    "severity": "INFO",
+    "evidence": "DLL_CHARACTERISTICS.DYNAMIC_BASE=True"
+  },
+  "DEP/NX": {
+    "name": "DEP/NX",
+    "passed": true,
+    "severity": "INFO",
+    "evidence": "DLL_CHARACTERISTICS.NX_COMPAT=True"
+  },
+  "CFG": {
+    "name": "CFG",
+    "passed": false,
+    "severity": "WARN",
+    "evidence": "DLL_CHARACTERISTICS.GUARD_CF=False"
+  },
+  "SafeSEH": {
+    "name": "SafeSEH",
+    "passed": false,
+    "severity": "WARN",
+    "evidence": "SafeSEH=False"
+  },
+  "StackCookie": {
+    "name": "StackCookie",
+    "passed": false,
+    "severity": "WARN",
+    "evidence": "symbols_found=none"
+  },
+  "DigitalSignature": {
+    "name": "DigitalSignature",
+    "passed": true,
+    "severity": "INFO",
+    "evidence": "Signed=True"
+  },
+  "_meta": {
+    "path": "C:\\Users\\12345\\OneDrive\\Documents\\Aarsh All Data\\Academics\\Minor Project Sem VII\\Code\\SecuriForge\\uploads\\MasterPDFEditor.exe",
+    "format": "PE",
+    "file_size_bytes": 26472632
+  }
+}</pre><h3>RISK</h3><pre>{
+  "symbols": {
+    "total_symbols": 0,
+    "descriptive_symbols": 0,
+    "examples": [],
+    "risk_score": 0.0
+  },
+  "control_flow": {
+    "sections_analyzed": 0,
+    "avg_risk_score": 1.0,
+    "risk_score": 1.0
+  },
+  "packing": {
+    "high_entropy_sections": [],
+    "num_high_entropy": 0,
+    "stripped": true,
+    "known_packer_sections": [],
+    "overlay_bytes": 11960,
+    "risk_score": 1.0
+  },
+  "strings": {
+    "num_strings": 322862,
+    "examples": [
+      "L$0H",
+      "L$HH",
+      "L$`H",
+      "L$xH",
+      "XMW-H",
+      "6Dv%H",
+      ")GSH",
+      "~UP6H",
+      "\"X;H",
+      "ofRH"
+    ],
+    "classified": {
+      "urls": [
+        "https://code-industry.net/mpe_update_license.php?",
+        "https://code-industry.ru/mpe_update_license.php?",
+        "https://code-industry.net",
+        "https://code-industry.net/",
+        "https://code-industry.ru/"
+      ],
+      "emails": [
+        "L$@H9L$Hu.H",
+        "<html><head/><body><p>Please send the ID key and Registration code to: </p><p><a href=\"mailto: support@code-industry.net\"><span style=\" text-decoration: underline; color:#007af4;\">support@code-industry.net</span></a></p><p>Once you receive your code enter it into &quot;Activation code&quot; field</p><p><br/></p></body></html>",
+        "If error is repeated, contact activations@code-industry.net",
+        "T=T@T,T-T<T.T6T)T",
+        "T9U@UcULU.U\\UEUVUWU8U3U]U"
+      ],
+      "keys": [
+        "https://code-industry.net/mpe_update_license.php?",
+        "https://code-industry.ru/mpe_update_license.php?",
+        "license-server-ip",
+        "license-server-port",
+        "--set-register license_key  : activate application"
+      ],
+      "others": [
+        "L$0H",
+        "L$HH",
+        "L$`H",
+        "L$xH",
+        "XMW-H"
+      ]
+    },
+    "risk_score": 1.0
+  },
+  "hardening_absence": {
+    "missing_features": [
+      "CFG",
+      "SafeSEH",
+      "StackCookie"
+    ],
+    "risk_score": 0.55
+  },
+  "overall_risk": {
+    "score": 0.76,
+    "interpretation": "High"
+  },
+  "_meta": {
+    "path": "C:\\Users\\12345\\OneDrive\\Documents\\Aarsh All Data\\Academics\\Minor Project Sem VII\\Code\\SecuriForge\\uploads\\MasterPDFEditor.exe",
+    "format": "Binary",
+    "file_size_bytes": 26472632,
+    "timestamp": "2025-09-28T02:56:13.083565"
+  }
+}</pre><h3>MALWARE</h3><pre>{
+  "entropy": {
+    "per_section": [
+      {
+        "section": ".text",
+        "entropy": 6.554,
+        "size": 13305108,
+        "note": ""
+      },
+      {
+        "section": ".rdata",
+        "entropy": 6.308,
+        "size": 11732022,
+        "note": ""
+      },
+      {
+        "section": ".data",
+        "entropy": 3.784,
+        "size": 647168,
+        "note": ""
+      },
+      {
+        "section": ".pdata",
+        "entropy": 6.687,
+        "size": 511500,
+        "note": ""
+      },
+      {
+        "section": ".rsrc",
+        "entropy": 5.522,
+        "size": 156848,
+        "note": ""
+      },
+      {
+        "section": ".reloc",
+        "entropy": 5.484,
+        "size": 104988,
+        "note": ""
+      }
+    ],
+    "high_entropy_threshold": 7.5,
+    "score": 0.0
+  },
+  "wx_sections": {
+    "items": [],
+    "score": 0.0
+  },
+  "section_overlaps": {
+    "items": [],
+    "count": 0,
+    "score": 0.0
+  },
+  "unexpected_sections": {
+    "items": [],
+    "count": 0,
+    "score": 0.0
+  },
+  "imports": {
+    "suspicious": [
+      {
+        "dll": "KERNEL32.dll",
+        "func": "LoadLibraryA"
+      },
+      {
+        "dll": "KERNEL32.dll",
+        "func": "GetProcAddress"
+      }
+    ],
+    "total_imports": 4015,
+    "score": 0.167
+  },
+  "size_overlay": {
+    "details": {
+      "overlay_size": 11960
+    },
+    "file_size": 26472632,
+    "declared_sections_size": 26459648,
+    "score": 0.1
+  },
+  "strings": {
+    "counts": {
+      "total_strings": 95981,
+      "urls": 81,
+      "emails": 3,
+      "keys": 3333
+    },
+    "examples": {
+      "urls": [
+        "https://code-industry.net/mpe_update_license.php?",
+        "https://code-industry.ru/mpe_update_license.php?",
+        "https://code-industry.net",
+        "https://code-industry.net/",
+        "https://code-industry.ru/",
+        "http://code-industry.net/",
+        "http://reg.code-industry.net",
+        "http://",
+        "http://get.code-industry.net/update/tesseract-4-lang.php",
+        "http://reg.code-industry.net/mpe-5/pr/index-5.php"
+      ],
+      "emails": [
+        "T9U@UcULU.U\\UEUVUWU8U3U]U",
+        "F@6TH.6",
+        "0X4B6.886F4.6@8T4.6@8H4 :\\4P.}"
+      ],
+      "keys": [
+        "D$PwD",
+        "u]fE9M\"uVfE9M2uOfE9MBuHfE9MRuAfE9Mbu:fE9Mru3A",
+        "DeleteAcrossPagesDialog",
+        "DeleteHeaderAndFooterDialog",
+        "verticalLayoutPageRange",
+        "BatesNumberingOptionsDialog",
+        "1RemoveAppSessionFromRecent(QString)",
+        "1RenameAppSessionInRecent(QString, QString)",
+        "1currentCharFormatChanged(QTextCharFormat)",
+        "2currentCharFormatChanged(QTextCharFormat)"
+      ],
+      "ips": [
+        "FreeType 2, Version 2.5.0.1",
+        "d=\"m7.01172 3c-.57735 1-.878131 1-.300781 2l3.541016 6.140625-2.058594 3.527344c-.445257-.411453-1.036498-.667969-1.693359-.667969-1.385 0-2.5 1.115-2.5 2.5 0 1.385 1.115 2.5 2.5 2.5 1.385 0 2.5-1.115 2.5-2.5 0-.167103-.01785-.330523-.048828-.488281l1.162109-2.01367c.780419-.001.878798-.774603 1.333985-.785156l1.603515 2.78125c-.033193.163037-.050781.332734-.050781.505859 0 1.385 1.115 2.5 2.5 2.5 1.385 0 2.5-1.115 2.5-2.5 0-1.385-1.115-2.5-2.5-2.5-.653333 0-1.241072.254586-1.685547.662109l-2.054687-3.521484 3.541015-6.140625c.57735-1 .276569-1-.300781-2l-3.994141 6.847656-3.99414-6.847656m3.988281 8c.277 0 .5.223.5.5 0 .277-.223.5-.5.5-.277 0-.5-.223-.5-.5 0-.277.223-.5.5-.5zm-4.5 4c.831 0 1.5.669 1.5 1.5 0 .831-.669 1.5-1.5 1.5-.831 0-1.5-.669-1.5-1.5 0-.831.669-1.5 1.5-1.5m9 0c.831 0 1.5.669 1.5 1.5 0 .831-.669 1.5-1.5 1.5-.831 0-1.5-.669-1.5-1.5 0-.831.669-1.5 1.5-1.5\""
+      ],
+      "registry": [
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Code Industry\\Master PDF Editor 5"
+      ],
+      "crypto": [
+        "40 bit RC4",
+        "128 bit RC4",
+        "128 bit AES",
+        "256 bit AES"
+      ],
+      "others": [
+        "L$0H",
+        "L$HH",
+        "L$`H",
+        "L$xH",
+        "XMW-H",
+        "6Dv%H",
+        ")GSH",
+        "~UP6H",
+        "\"X;H",
+        "ofRH"
+      ]
+    },
+    "score": 0.1
+  },
+  "yara": {
+    "available": true,
+    "matches": [],
+    "score": 0.0
+  },
+  "overall_risk": {
+    "score": 0.198,
+    "interpretation": "Low",
+    "components": {
+      "entropy": 0.0,
+      "unexpected_sections": 0.0,
+      "imports": 0.167,
+      "size_overlay": 0.1,
+      "wx_sections": 0.0,
+      "strings": 0.1,
+      "section_overlaps": 0.0,
+      "yara": 0.0
+    }
+  }
+}</pre></body></html>

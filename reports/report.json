@@ -1,0 +1,61 @@
+{
+  "hardening": {
+    "ASLR": {
+      "name": "ASLR",
+      "passed": true,
+      "severity": "INFO",
+      "evidence": "DLL_CHARACTERISTICS.DYNAMIC_BASE=True"
+    },
+    "DEP/NX": {
+      "name": "DEP/NX",
+      "passed": true,
+      "severity": "INFO",
+      "evidence": "DLL_CHARACTERISTICS.NX_COMPAT=True"
+    },
+    "CFG": {
+      "name": "CFG",
+      "passed": false,
+      "severity": "WARN",
+      "evidence": "DLL_CHARACTERISTICS.GUARD_CF=False"
+    },
+    "SafeSEH": {
+      "name": "SafeSEH",
+      "passed": false,
+      "severity": "WARN",
+      "evidence": "SafeSEH=False"
+    },
+    "StackCookie": {
+      "name": "StackCookie",
+      "passed": false,
+      "severity": "WARN",
+      "evidence": "symbols_found=none"
+    },
+    "DigitalSignature": {
+      "name": "DigitalSignature",
+      "passed": true,
+      "severity": "INFO",
+      "evidence": "Signed=True"
+    },
+    "_meta": {}
+  },
+  "risk": {
+    "symbols": {},
+    "control_flow": {},
+    "packing": {},
+    "strings": {},
+    "hardening_absence": {},
+    "overall_risk": {},
+    "_meta": {}
+  },
+  "malware": {
+    "entropy": {},
+    "wx_sections": {},
+    "section_overlaps": {},
+    "unexpected_sections": {},
+    "imports": {},
+    "size_overlay": {},
+    "strings": {},
+    "yara": {},
+    "overall_risk": {}
+  }
+}

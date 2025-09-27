@@ -1,0 +1,307 @@
+
+<!doctype html>
+<html>
+<head>
+  <title>Binary Security Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    h2,h3 { margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    td, th { border: 1px solid #ddd; padding: 6px; }
+    th { background: #f0f0f0; }
+    .status-pass { color: green; font-weight: bold; }
+    .status-fail { color: red; font-weight: bold; }
+    pre { background:#f4f4f4; padding:10px; border-radius:5px; overflow-x:auto;}
+  </style>
+</head>
+<body>
+  <h2>Binary Security Report</h2>
+
+  
+  <div>
+    <h3>AI Summary</h3>
+    <pre> </pre>
+  </div>
+  
+
+  
+  <div>
+    <h3>Hardening Report</h3>
+    <pre>{
+  "ASLR": {
+    "evidence": "DLL_CHARACTERISTICS.DYNAMIC_BASE=True",
+    "name": "ASLR",
+    "passed": true,
+    "severity": "INFO"
+  },
+  "CFG": {
+    "evidence": "DLL_CHARACTERISTICS.GUARD_CF=True",
+    "name": "CFG",
+    "passed": true,
+    "severity": "INFO"
+  },
+  "DEP/NX": {
+    "evidence": "DLL_CHARACTERISTICS.NX_COMPAT=True",
+    "name": "DEP/NX",
+    "passed": true,
+    "severity": "INFO"
+  },
+  "DigitalSignature": {
+    "evidence": "Signed=True",
+    "name": "DigitalSignature",
+    "passed": true,
+    "severity": "INFO"
+  },
+  "SafeSEH": {
+    "evidence": "SafeSEH=False",
+    "name": "SafeSEH",
+    "passed": false,
+    "severity": "WARN"
+  },
+  "StackCookie": {
+    "evidence": "symbols_found=none",
+    "name": "StackCookie",
+    "passed": false,
+    "severity": "WARN"
+  },
+  "_meta": {
+    "file_size_bytes": 2709552,
+    "format": "PE",
+    "path": "C:\\Users\\12345\\OneDrive\\Documents\\Aarsh All Data\\Academics\\Minor Project Sem VII\\Code\\uploads\\Notepad.exe"
+  }
+}</pre>
+  </div>
+  
+  <div>
+    <h3>Risk Report</h3>
+    <pre>{
+  "_meta": {
+    "file_size_bytes": 2709552,
+    "format": "Binary",
+    "path": "C:\\Users\\12345\\OneDrive\\Documents\\Aarsh All Data\\Academics\\Minor Project Sem VII\\Code\\uploads\\Notepad.exe",
+    "timestamp": "2025-09-28T01:53:30.741961"
+  },
+  "control_flow": {
+    "avg_risk_score": 1.0,
+    "risk_score": 1.0,
+    "sections_analyzed": 0
+  },
+  "hardening_absence": {
+    "missing_features": [
+      "SafeSEH",
+      "StackCookie"
+    ],
+    "risk_score": 0.30000000000000004
+  },
+  "overall_risk": {
+    "interpretation": "High",
+    "score": 0.71
+  },
+  "packing": {
+    "high_entropy_sections": [],
+    "known_packer_sections": [],
+    "num_high_entropy": 0,
+    "overlay_bytes": 10288,
+    "risk_score": 1.0,
+    "stripped": true
+  },
+  "strings": {
+    "classified": {
+      "emails": [
+        "  jloup@gzip.org          madler@alumni.caltech.edu"
+      ],
+      "keys": [
+        "GetUserStatusAsync:Access token is empty",
+        "SubmitRewriteAsync:Access token is empty",
+        "GetRewriteAsync:Access token is empty",
+        "SubmitSummarizeAsync:Access token is empty",
+        "GetSummarizeAsync:Access token is empty"
+      ],
+      "others": [
+        "fD9DA",
+        "M\u0027H3",
+        "fD9LA",
+        "fD9LA",
+        "fD9LA"
+      ],
+      "urls": [
+        "http://",
+        "https://"
+      ]
+    },
+    "examples": [
+      "fD9DA",
+      "M\u0027H3",
+      "fD9LA",
+      "fD9LA",
+      "fD9LA",
+      "fD9LA",
+      "fD9LQ",
+      "D$8A",
+      "D$\u003cI",
+      "D$@H"
+    ],
+    "num_strings": 31285,
+    "risk_score": 1.0
+  },
+  "symbols": {
+    "descriptive_symbols": 0,
+    "examples": [],
+    "risk_score": 0.0,
+    "total_symbols": 0
+  }
+}</pre>
+  </div>
+  
+  <div>
+    <h3>Malware Report</h3>
+    <pre>{
+  "entropy": {
+    "high_entropy_threshold": 7.5,
+    "per_section": [
+      {
+        "entropy": 6.355,
+        "note": "",
+        "section": ".text",
+        "size": 1652711
+      },
+      {
+        "entropy": 5.516,
+        "note": "",
+        "section": ".rdata",
+        "size": 648778
+      },
+      {
+        "entropy": 4.935,
+        "note": "",
+        "section": ".data",
+        "size": 239104
+      },
+      {
+        "entropy": 6.159,
+        "note": "",
+        "section": ".pdata",
+        "size": 76656
+      },
+      {
+        "entropy": 6.177,
+        "note": "",
+        "section": ".rsrc",
+        "size": 66264
+      },
+      {
+        "entropy": 5.375,
+        "note": "",
+        "section": ".reloc",
+        "size": 13564
+      }
+    ],
+    "score": 0.0
+  },
+  "imports": {
+    "score": 0.083,
+    "suspicious": [
+      {
+        "dll": "KERNEL32.dll",
+        "func": "GetProcAddress"
+      }
+    ],
+    "total_imports": 589
+  },
+  "overall_risk": {
+    "components": {
+      "entropy": 0.0,
+      "imports": 0.083,
+      "section_overlaps": 0.0,
+      "size_overlay": 0.1,
+      "strings": 0.1,
+      "unexpected_sections": 0.0,
+      "wx_sections": 0.0,
+      "yara": 0.0
+    },
+    "interpretation": "Low",
+    "score": 0.153
+  },
+  "section_overlaps": {
+    "count": 0,
+    "items": [],
+    "score": 0.0
+  },
+  "size_overlay": {
+    "declared_sections_size": 2698240,
+    "details": {
+      "overlay_size": 10288
+    },
+    "file_size": 2709552,
+    "score": 0.1
+  },
+  "strings": {
+    "counts": {
+      "emails": 0,
+      "keys": 923,
+      "total_strings": 9847,
+      "urls": 11
+    },
+    "examples": {
+      "crypto": [],
+      "emails": [],
+      "ips": [],
+      "keys": [
+        " !!\"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%\u0026\u0026\u0026\u0026\u0026\u0026\u0026\u0026\u0026\u0026\u0026\u0026\u0027\u0026\u0026()))*f",
+        "D D!D\"D#D$D%D\u0026D\u0027D(D)D*D+D,D-D.D/D0D1D2D3D4D5D6DDDDDDD78D9:DD;D\u003c=\u003e?D@DADBDCf",
+        " !\"#$%\u0026\u0027()*+,-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr.r/01rr2r3r4r5678r9rr:rrrrrrrr;\u003c=r\u003er?r@rArBrCrDrErFrGrHrIrJrKrLrMrNrOrPrQrRrSrTrUrVrWrXrYrZr[r\\r]r^r_r`rarbrcrdrerfrgrhrirjrkrlrmrnrrrrrrrrorprrrrqf",
+        "F F!F\"F#F$FFFFFFFFFF%F\u0026F\u0027(F)F*F+F,FFFF-F.FF/F0FFF1F2F3F4F5F6F7F8F9F:F;\u003c=\u003e?F@ABCDFE",
+        " !\"#$%\u0026KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK\u0027()*+,-./0123456789:;\u003c=\u003e?@ABCDEFGHIJ",
+        "CapitalDifferentialD",
+        "ClockwiseContourIntegral",
+        "CloseCurlyDoubleQuote",
+        "CounterClockwiseContourIntegral",
+        "DiacriticalDoubleAcute"
+      ],
+      "others": [
+        "fD9DA",
+        "M\u0027H3",
+        "fD9LA",
+        "fD9LQ",
+        "D$8A",
+        "D$\u003cI",
+        "D$@H",
+        "D$PH",
+        "L$pI",
+        "T$xE3"
+      ],
+      "registry": [],
+      "urls": [
+        "http://",
+        "https://",
+        "https://go.microsoft.com/fwlink/?LinkId=529064",
+        "https://go.microsoft.com/fwlink/?LinkId=822631",
+        "https://go.microsoft.com/fwlink/?LinkId=521839",
+        "https://go.microsoft.com/fwlink/?linkid=873217\u0026q={}\u0026form=NPNEW1",
+        "https://go.microsoft.com/fwlink/?LinkId=834783",
+        "https://go.microsoft.com/fwlink/p/?linkid=838060",
+        "https://login.windows.local",
+        "https://login.microsoft.com"
+      ]
+    },
+    "score": 0.1
+  },
+  "unexpected_sections": {
+    "count": 0,
+    "items": [],
+    "score": 0.0
+  },
+  "wx_sections": {
+    "items": [],
+    "score": 0.0
+  },
+  "yara": {
+    "available": true,
+    "matches": [],
+    "score": 0.0
+  }
+}</pre>
+  </div>
+  
+</body>
+</html>
