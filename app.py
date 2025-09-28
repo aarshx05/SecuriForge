@@ -202,7 +202,7 @@ def upload_file():
         file = request.files.get("file")
         selected_modules = request.form.getlist("modules")
         report_mode = request.form.get("report_mode", "report")
-        api_key = "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"  # Replace with your actual key
+        api_key = os.getenv("OPENROUTER_API_KEY") 
 
         if file:
             filepath = os.path.join(UPLOAD_FOLDER, file.filename)
