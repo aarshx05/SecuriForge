@@ -1,0 +1,26 @@
+numpy<2
+sentence-transformers
+torch==2.2.0
+torchvision==0.17.0
+torchaudio==2.2.0
+--extra-index-url https://download.pytorch.org/whl/cpu
+yara-python
+python-magic
+pefile
+lief
+capstone
+markdown
+groq
+reportlab
+python-docx
+openpyxl
+beautifulsoup4
+lxml
+requests
+pytz
+
+# PDF export support
+WeasyPrint
+tinycss2
+cssselect2
+html5lib

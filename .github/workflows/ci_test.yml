@@ -1,0 +1,77 @@
+name: SecuriForge Test Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test-analysis:
+    runs-on: ubuntu-latest
+
+    env:
+      GHCR_USERNAME: ${{ github.actor }}
+      GHCR_PAT: ${{ secrets.GHCR_PAT }}
+      EMAIL_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+      GROQ_KEY: ${{ secrets.GROQ_KEY }}
+      EMAIL_TO: "aarsh.chaurasia.201007@gmail.com"
+      EMAIL_FROM: "aarshgdsc@gmail.com"
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_PAT }}
+
+      - name: Pull SecuriForge Docker Image
+        run: docker pull ghcr.io/aarshx05/securiforge:latest
+
+      - name: Install mingw-w64 (Windows cross-compiler)
+        run: sudo apt-get update && sudo apt-get install -y mingw-w64
+
+      - name: Create Windows Test Binary
+        run: |
+          cat << 'EOF' > test.c
+          #include <stdio.h>
+          int main() {
+              printf("Hello Test Binary\n");
+              return 0;
+          }
+          EOF
+          x86_64-w64-mingw32-gcc test.c -o TestBinary.exe
+
+      - name: Run SecuriForge Analysis
+        run: |
+          mkdir -p reports
+          docker run --rm -v $PWD:/repo \
+            -e EMAIL_TO="$EMAIL_TO" \
+            -e EMAIL_FROM="$EMAIL_FROM" \
+            -e EMAIL_PASSWORD="$EMAIL_PASSWORD" \
+            -e GROQ_KEY="$GROQ_KEY" \
+            ghcr.io/aarshx05/securiforge:latest \
+            python3 unified_binary_analysis.py /repo/TestBinary.exe \
+              --ai-report \
+              --groq-key "$GROQ_KEY" \
+              --export-pdf /repo/reports/ai_report.pdf \
+              --email-to "$EMAIL_TO" \
+              --email-from "$EMAIL_FROM" \
+              --email-password "$EMAIL_PASSWORD" \
+              --email-preset gmail \
+              --email-attach-json \
+              --email-attach-pdf \
+              -o /repo/reports/ai_report.json || echo "Analysis finished (non-zero exit ignored)"
+
+      - name: Upload Report as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: securiforge-report
+          path: reports/
