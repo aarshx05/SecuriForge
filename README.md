@@ -483,6 +483,6 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 
 ---
 
-**Made with ❤️ by the SecuriForge Team**
+**Made with ❤️ by the Aarsh Chaurasia (aarshc.me)**
 
 ⭐ Star us on GitHub if this tool helps secure your software!
